@@ -126,8 +126,6 @@ Docs can be found [here](https://smeevil.github.io/ecto_translate/EctoTranslate.
 
 1. Add the macro to your model that you want to translate
 
-**Important:** Note that you should import `Ecto.Query` before `use EctoTranslate` in your schema module. 
-
     ```elixir
     defmodule MyApp.Post do
       ...
@@ -141,8 +139,7 @@ Docs can be found [here](https://smeevil.github.io/ecto_translate/EctoTranslate.
       ...
     end
     ```
-    
-    
+    **Important:** Note that you should import `Ecto.Query` before `use EctoTranslate` in your schema module. 
 
 1. Set translations for your data
 
@@ -152,7 +149,6 @@ Docs can be found [here](https://smeevil.github.io/ecto_translate/EctoTranslate.
     ```
 
 1. Use the translations
-
 
     ```elixir
     iex> translated_post = MyApp.Post.translate!(post, :nl)
