@@ -219,8 +219,6 @@ defmodule EctoTranslate do
   @spec known_locales :: List.t[String.t]
   def known_locales, do: Gettext.known_locales(Application.get_env(:ecto_translate, :gettext))
 
-
-
   defp validate_changesets(changesets) do
     case Enum.filter(changesets, fn changeset -> !changeset.valid? end) do
       invalid when invalid == [] -> {:ok, changesets}
