@@ -1,12 +1,14 @@
-defmodule Mix.Tasks.EctoTranslate.GenMigration do
+defmodule Mix.Tasks.EctoTranslate.Gen.Migration do
   use Mix.Task
 
   import Macro, only: [camelize: 1, underscore: 1]
   import Mix.Generator
   import Mix.Ecto
 
+   @shortdoc "Generates a new migration for the EctoTranslate translation table"
+
   def run(args) do
-    no_umbrella!("ecto.gen.migration")
+    # no_umbrella!("ecto.gen.migration")
     repos = parse_repo(args)
     name = "ecto_translate"
 
