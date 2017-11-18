@@ -46,7 +46,6 @@ defmodule EctoTranslate do
   """
   use Ecto.Schema
 
-  import Ecto
   import Ecto.Changeset
   import Ecto.Query
 
@@ -145,13 +144,21 @@ defmodule EctoTranslate do
     {translatable_fields_ast, {translated_field_ast, translate_ast}}
   end
 
+  @translatable_id_type Application.get_env(:ecto_translate, :translateable_id_type, :integer)
+
+  @doc """
+  Returns translatable id type configured for application
+  """
+  @spec translatable_id_type :: atom()
+  def translatable_id_type, do: @translatable_id_type
+
   schema "translations" do
-    field :translatable_id, :integer
+    field :translatable_id, @translatable_id_type
     field :translatable_type, :string
     field :locale, :string
     field :field, :string
     field :content, :string
-    timestamps
+    timestamps()
   end
 
   @repo Application.get_env(:ecto_translate, :repo)
@@ -211,6 +218,8 @@ defmodule EctoTranslate do
   """
   @spec known_locales :: List.t[String.t]
   def known_locales, do: Gettext.known_locales(Application.get_env(:ecto_translate, :gettext))
+
+
 
   defp validate_changesets(changesets) do
     case Enum.filter(changesets, fn changeset -> !changeset.valid? end) do
