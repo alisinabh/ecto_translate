@@ -144,7 +144,7 @@ defmodule EctoTranslate do
     {translatable_fields_ast, {translated_field_ast, translate_ast}}
   end
 
-  @translatable_id_type Application.get_env(:ecto_translate, :translateable_id_type, :integer)
+  @translatable_id_type Application.get_env(:ecto_translate, :translatable_id_type, :integer)
 
   @doc """
   Returns translatable id type configured for application
