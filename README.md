@@ -68,7 +68,7 @@ Docs can be found [here](https://smeevil.github.io/ecto_translate/EctoTranslate.
 
     ```elixir
     def deps do
-      [{:ecto_translate, "~> 0.1.0"}]
+      [{:ecto_translate, "~> 0.2.3"}]
     end
     ```
 
