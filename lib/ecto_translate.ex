@@ -148,6 +148,17 @@ defmodule EctoTranslate do
 
   @doc """
   Returns translatable id type configured for application
+
+  The id type can be configured by setting `:translatable_id_type` config for
+  `:ecto_translate` otp application.
+
+  ## Example
+  ```elixir
+    config ecto_translate,
+      translatable_id_type: :string
+  ```
+
+  By default the is type is presumed as `:integer`
   """
   @spec translatable_id_type :: atom()
   def translatable_id_type, do: @translatable_id_type
