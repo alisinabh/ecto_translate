@@ -87,8 +87,7 @@ Docs can be found [here](https://smeevil.github.io/ecto_translate/EctoTranslate.
     translatable_id.
 
     To do this simply config `:ecto_translate` otp app for `:translatable_id_type`
-
-    ## Exmaple
+    with your choice of type. (e.g: binary_id, string, etc.)
 
       ```elixir
       config :ecto_translate,
